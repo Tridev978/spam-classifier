@@ -17,7 +17,7 @@ A machine learning project that detects whether a text message is **spam** or **
 - Trains and compares **Naive Bayes** and **Logistic Regression**
 - Chooses the best model automatically using the spam F1-score
 - Saves the full pipeline (TF-IDF + model) so the app accepts raw text
-- Web app with a text box, example messages, a spam/not-spam verdict and a probability bar
+- Web app with a text box, example messages, a spam / not-spam verdict and a probability bar
 - Saves a confusion matrix image for the best model
 
 ---
@@ -53,17 +53,17 @@ Place the file at `data/spam.csv` (columns `v1` = label, `v2` = message).
 
 Evaluated on 1,034 held-out test messages (903 ham, 131 spam):
 
-|        Model        | Accuracy | Spam precision | Spam recall | Spam F1 |
-|---------------------|----------|----------------|-------------|---------|
-|   **Naive Bayes**   |    0.97  |      0.99      |    0.74     |  0.85   |
-| Logistic Regression |    0.96  |      0.99      |    0.68     |  0.81   |
+|         Model              | Accuracy | Spam precision | Spam recall | Spam F1 |
+|----------------------------|----------|----------------|-------------|---------|
+| **Naive Bayes** (selected) |   0.97   |       0.99     |    0.74     |   0.85  |
+|   Logistic Regression      |   0.96   |       0.99     |    0.68     |   0.81  |
 
 **Confusion matrix (Naive Bayes):**
 
-|                | Predicted ham | Predicted spam |
-|----------------|---------------|----------------|
-| **Actual ham** |      902      |      1         |
-| **Actual spam** |     34       |     97         |
+|                 | Predicted ham | Predicted spam |
+|-----------------|---------------|----------------|
+| **Actual ham**  |      902      |      1         |
+| **Actual spam** |      34       |      97        |
 
 ![Confusion matrix](confusion_matrix.png)
 
@@ -90,7 +90,39 @@ spam-classifier/
 ├── confusion_matrix.png      # created by train.py
 ├── requirements.txt
 └── README.md
+```
 
+---
+
+## 🚀 Run it yourself
+
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/Tridev978/spam-classifier.git
+cd spam-classifier
+```
+
+**2. Create a virtual environment (recommended)**
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+**3. Install the dependencies**
+
+```bash
+pip install -r requirements.txt
+```
+
+**4. Start the app**
+
+```bash
+streamlit run app.py
+```
+
+The app opens in your browser at `http://localhost:8501`.
 
 > The saved model was trained with the scikit-learn version listed in `requirements.txt`. If you use a different version, re-run `python train.py` to avoid loading problems.
 
@@ -98,12 +130,12 @@ spam-classifier/
 
 ## 🧪 Try these messages
 
-| Message | Expected |
-|---|---|
-| `WINNER!! You have been selected for a £900 prize. Call 09061701461 now.` | Spam |
-| `Free entry in 2 a weekly comp to win FA Cup final tkts. Text FA to 87121.` | Spam |
-| `Are we still meeting at 5 today?` | Not spam |
-| `Ok lar, I'll reach home by 8 and call you after dinner.` | Not spam |
+|                         Message                                             | Expected  |
+|-----------------------------------------------------------------------------|-----------|
+| `WINNER!! You have been selected for a £900 prize. Call 09061701461 now.`   |   Spam    |
+| `Free entry in 2 a weekly comp to win FA Cup final tkts. Text FA to 87121.` |   Spam    |
+|                      `Are we still meeting at 5 today?`                     | Not spam  |
+|           `Ok, I'll reach home by 8 and call you after dinner.`             | Not spam  |
 
 ---
 
@@ -133,7 +165,7 @@ Python · pandas · scikit-learn · matplotlib · joblib · Streamlit
 
 ---
 
-##  Acknowledgements
+## 🙏 Acknowledgements
 
 - Dataset: Almeida, T.A., Gómez Hidalgo, J.M., Yamakami, A. — *SMS Spam Collection* (UCI Machine Learning Repository)
 
@@ -141,5 +173,6 @@ Python · pandas · scikit-learn · matplotlib · joblib · Streamlit
 
 ## 👤 Author
 
-Tridev Badari R
-CSE (AI), Amrita Vishwa Vidyapeetham,chennai
+**Tridev Badari R**  
+CSE (AI), Amrita Vishwa Vidyapeetham, Chennai  
+GitHub: https://github.com/Tridev978
